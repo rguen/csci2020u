@@ -1,14 +1,16 @@
+plugins {
+    id "application"
+}
 apply plugin: 'java'
-
-repositories{
-    mavenCentral();
+ext {
+   javaMainClass = "CSVDemo"
 }
-
-dependencies{
-    compile 'org.apache.commons:commons-csv:1.5'
+application {
+    mainClassName = javaMainClass
 }
-
-task execute(type:JavaExec, dependsOn: 'classes'){
-    main = 'Test_File'
-    classpath = sourceSets.main.runtimeClasspath
-}
+repositories {
+    mavenCentral()
+ }
+ dependencies {
+   compile 'org.apache.commons:commons-csv:1.5'
+ }
